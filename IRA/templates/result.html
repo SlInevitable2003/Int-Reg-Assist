@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/timer.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<p>这里是智能导诊系统给你推荐的挂号科室...</p>
+<p><span id="timer">60</span>秒后将自动跳转回首页。<a href={{ url_for('index') }}>现在就返回！</a></p>
+<script type="text/javascript">timetojump(60, "{{ url_for('index') }}");</script>
+{% endblock %}
