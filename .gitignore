@@ -3,3 +3,5 @@ development assist/
 *~
 __pycache__
 .DS_Store
+
+.env

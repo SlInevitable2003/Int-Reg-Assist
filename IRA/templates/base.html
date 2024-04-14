@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能导诊系统</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+    {% endblock %}
+</head>
+<body>
+    <h2>
+        欢迎使用智能导诊系统
+    </h2>
+    {% block content %}{% endblock %}
+    <footer>
+        <small> 版权所有 © 2024 葫芦兄弟大学生创业实践项目组。保留所有权利。 </small>
+    </footer>
+</body>
+</html>
