@@ -12,6 +12,21 @@ def index():
 def place():
     return render_template('place.html', places=places)
 
+@app.route('/valid')
+def valid():
+    place = request.args.get('place')
+    if place[-1] == '/':
+        place = place[:-1]
+    sex = False
+    dictfound = True
+    if place == '阴部':
+        sex = True
+    elif place == '脖颈' and random.choice([0, 1]) == 0:
+        place = '喉咙'
+    if places.get(place) is None:
+        dictfound = False
+    return render_template('valid.html', places=places, place=place, sex=sex, dictfound=dictfound)
+
 @app.route('/query/<int:ans>')
 def query(ans):
     if ans != 2 and ans % 10 == 2:

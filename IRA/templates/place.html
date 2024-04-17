@@ -1,11 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p>这里是智能导诊系统问答环节。选择你的患病部位：</p>
-<ul>
+<p>这里是智能导诊系统问答环节。选择您感觉不舒服的地方：</p>
+<!-- <ul>
     {% for k, v in places.items() %}
-    <li><a href={{ url_for('result', answer=v) }}>{{ k }}</a></li>
+    <li><a class="btn" href={{ url_for('result', answer=v) }}>{{ k }}</a></li>
     {% endfor %}
-    <li><a href={{ url_for('query', ans=2)}}>其他部位</a></li>
-</ul>
+    <li><a class="btn" href={{ url_for('query', ans=2)}}>其他部位</a></li>
+</ul> -->
+<map name="human-body">
+    <area shape="rect" coords="196,229,240,266" href={{ url_for('valid', place='乳头') }}/>
+    <area shape="rect" coords="246,229,290,266" href={{ url_for('valid', place='乳头') }}/>
+    <area shape="rect" coords="216,154,277,168" href={{ url_for('valid', place='口腔') }}/>
+    <area shape="rect" coords="235,126,278,145" href={{ url_for('valid', place='鼻子') }}/>
+    <area shape="rect" coords="195,106,278,125" href={{ url_for('valid', place='眼睛') }}/>
+    <area shape="rect" coords="166,110,212,145" href={{ url_for('valid', place='耳朵') }}/>
+    <area shape="rect" coords="289,195,352,113" href={{ url_for('valid', place='耳朵') }}/>
+    <area shape="rect" coords="216,68,243,95" href={{ url_for('valid', place='头') }}/>
+    <area shape="rect" coords="235,185,280,212" href={{ url_for('valid', place='脖颈') }}/>
+    <area shape="rect" coords="187,279,317,317" href={{ url_for('valid', place='胸') }}/>
+    <area shape="rect" coords="167,319,280,377" href={{ url_for('valid', place='腹部') }}/>
+    <area shape="rect" coords="179,398,235,440" href={{ url_for('valid', place='阴部') }}/>
+    <area shape="rect" coords="125,250,178,368" href={{ url_for('valid', place='大臂') }}/>
+    <area shape="rect" coords="305,250,358,368" href={{ url_for('valid', place='大臂') }}/>
+    <area shape="rect" coords="85,368,158,478" href={{ url_for('valid', place='小臂') }}/>
+    <area shape="rect" coords="335,368,398,478" href={{ url_for('valid', place='小臂') }}/>
+    <area shape="rect" coords="45,478,138,570" href={{ url_for('valid', place='手掌') }}/>
+    <area shape="rect" coords="355,478,398,570" href={{ url_for('valid', place='手掌') }}/>
+    <area shape="rect" coords="125,468,309,662" href={{ url_for('valid', place='大腿') }}/>
+    <area shape="rect" coords="166,688,291,854" href={{ url_for('valid', place='小腿') }}/>
+    <area shape="rect" coords="191,867,277,992" href={{ url_for('valid', place='脚') }}/>
+</map>
+<img class="human-body" usemap="#human-body" src={{ url_for('static', filename='images/human.png') }}>
+<div id="wrap">
+    <a class="btn" href={{ url_for('result', answer='皮肤科')}}>我感觉皮肤不适</a>
+    <a class="btn" href={{ url_for('query', ans=2)}}>跳过这一步！</a>
+</div>
 {% endblock %}

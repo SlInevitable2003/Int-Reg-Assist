@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if sex == False: %}
+<p>您选择了{{ place }}，是否确定？</p>
+<div id="wrap">
+    {% if dictfound == True: %}
+        <a class="btn" href={{ url_for('result', answer=places[place]) }}>我确定，开始导诊。</a>
+    {% else: %}
+    <a class="btn" href={{ url_for('query', ans=2) }}>我确定，开始导诊。</a>
+    {% endif %}
+    <a class="btn" href={{ url_for('place') }}>不确定，重新选择！</a>
+</div>
+{% else: %}
+<p>您选择了{{ place }}，请问您是男性还是女性</p>
+<div id="wrap">
+    <a class="btn" href={{ url_for('result', answer=places['男性'+place]) }}>男性</a>
+    <a class="btn" href={{ url_for('result', answer=places['女性'+place]) }}>女性</a>
+    <a class="btn" href={{ url_for('place') }}>选错了，重新选择！</a>
+</div>
+{% endif %}
+
+{% endblock %}

@@ -6,6 +6,7 @@
 
 {% block content %}
 <p>{{ answer }}</p>
-<p><span id="timer">60</span>秒后将自动跳转回首页。<a href={{ url_for('index') }}>现在就返回！</a></p>
+<p><span id="timer">60</span>秒后将自动跳转回首页。</p>
+<p><a class="btn" href={{ url_for('index') }}>现在就返回！</a></p>
 <script type="text/javascript">timetojump(60, "{{ url_for('index') }}");</script>
 {% endblock %}

@@ -2,5 +2,6 @@
 
 {% block content %}
 <p>这里是智能导诊系统首页。</p>
-<p><a href={{ url_for('place') }}>现在开始!</a></p>
+<p><a class="btn" href={{ url_for('place') }}>现在开始!</a></p>
+<img class="hospital" src="{{ url_for('static', filename='images/hospital.jpeg') }}" title="hospital">
 {% endblock %}
