@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>这里是智能导诊系统问答环节。选择你的患病部位：</p>
+<ul>
+    {% for k, v in places.items() %}
+    <li><a href={{ url_for('result', answer=v) }}>{{ k }}</a></li>
+    {% endfor %}
+    <li><a href={{ url_for('query', ans=2)}}>其他部位</a></li>
+</ul>
+{% endblock %}

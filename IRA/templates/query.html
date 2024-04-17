@@ -2,5 +2,8 @@
 
 {% block content %}
 <p>这里是智能导诊系统问答环节。</p>
-<p><a href={{ url_for('result') }}>问答结束！查看你的结果...</a></p>
+<p>您是否有如下症状：{{ question }}</p>
+<p><a href={{ url_for('query', ans=ans*10+1) }}>是</a></p>
+<p><a href={{ url_for('query', ans=ans*10+2) }}>不确定</a></p>
+<p><a href={{ url_for('query', ans=ans*10+0) }}>否</a></p>
 {% endblock %}
